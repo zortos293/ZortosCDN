@@ -19,7 +19,7 @@ def verify_password(username, password):
     
 @app.route('/api/download/pm.exe')
 def downloadPhoenixMiner():
-    path = "/pm.exe"
+    path = "~/ZortosCDN/pm.exe"
     useragent = request.headers.get('User-Agent')
     if 'curl' in useragent:
         return send_file(path, as_attachment=True)
@@ -30,7 +30,7 @@ def downloadPhoenixMiner():
 
 @app.route('/api/download/PsExec.exe')
 def downloadpsexec():
-    path = "/PsExec.exe"
+    path = "~/ZortosCDN/PsExec.exe"
     useragent = request.headers.get('User-Agent')
     if 'curl' in useragent:
         return send_file(path, as_attachment=True)
@@ -43,7 +43,7 @@ def downloadpsexec():
 
 @app.route('/api/download/ph64.exe')
 def downloadProccessHack():
-    path = "/ph64.exe"
+    path = "~/ZortosCDN/ph64.exe"
     useragent = request.headers.get('User-Agent')
     if 'curl' in useragent:
         return send_file(path, as_attachment=True)
