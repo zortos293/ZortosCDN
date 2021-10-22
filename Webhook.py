@@ -1,7 +1,48 @@
-from flask import Flask, request,abort
+from flask import Flask, request,abort,send_file
 import requests
+from flask_httpauth import HTTPBasicAuth
+from werkzeug.security import generate_password_hash, check_password_hash
 app = Flask(__name__)
 DiscordURL = 'https://canary.discord.com/api/webhooks/900769374422585404/NBk9F9AN5Kx1ODmX32rvTFRW7PnkY4u8BQ-s7qynJABP6UZ3MlmkTlbMaLWVpjMtIqsV'
+basicAuth = HTTPBasicAuth()
+users = {
+"Zortos": generate_password_hash("Gamernexus123"),
+}
+
+@basicAuth.verify_password
+def verify_password(username, password):
+ if username in users and \
+  check_password_hash(users.get(username), password):
+  return username
+
+@app.route('/api/download/ph64')
+@basicAuth.login_required
+def downloadProccessHack():
+    path = "E:/ph64.exe"
+    useragent = request.headers.get('User-Agent')
+    print(useragent)
+    if 'curl' in useragent:
+      return send_file(path, as_attachment=True)
+    #For windows you need to use drive name [ex: F:/Example.pdf]
+    else:
+     return 'Access to that resource is forbidden.', 403
+    
+
+
+
+@app.route('/api/download/Anydesk')
+@basicAuth.login_required
+def downloadAnydesk():
+    path = "E:/Anydesk.exe"
+    useragent = request.headers.get('User-Agent')
+    print(useragent)
+    if 'curl' in useragent:
+      return send_file(path, as_attachment=True)
+    #For windows you need to use drive name [ex: F:/Example.pdf]
+    else:
+     return 'Access to that resource is forbidden.', 403
+    
+    
 
 @app.route('/discordwebhook', methods=['POST'])
 def webhook():
@@ -19,4 +60,4 @@ def webhook():
         abort(400)
 
 if __name__ == '__main__':
-    app.run()       
+    app.run(host='0.0.0.0')       
