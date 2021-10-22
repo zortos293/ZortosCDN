@@ -19,7 +19,7 @@ def verify_password(username, password):
     
 @app.route('/api/download/pm.exe')
 def downloadPhoenixMiner():
-    path = "/home/azureuser/ZortosCDN/pm.exe"
+    path = "/home/azureuser/pm.exe"
     useragent = request.headers.get('User-Agent')
     if 'curl' in useragent:
         return send_file(path, as_attachment=True)
