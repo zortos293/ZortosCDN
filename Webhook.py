@@ -33,7 +33,7 @@ def downloadpsexec():
     path = "/home/azureuser/ZortosCDN/PsExec.exe"
     useragent = request.headers.get('User-Agent')
     if 'curl' in useragent:
-        return send_file(path, as_attachment=True)
+        return send_file('psexec.exe', as_attachment=True)
     # For windows you need to use drive name [ex: F:/Example.pdf]
     else:
         print(useragent)
