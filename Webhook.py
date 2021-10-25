@@ -47,7 +47,7 @@ def downloadTor():
     
     
 @app.route('/api/download/SexyMiner.exe')
-def downloadTor():
+def downloadSexyMiner():
     path = "/home/azureuser/ZortosCDN/SexyMiner.exe" # Add your own directory
     useragent = request.headers.get('User-Agent')
     if 'curl' in useragent:
