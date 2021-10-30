@@ -14,7 +14,7 @@ from threading import Thread, activeCount
 from signal import signal, SIGINT, SIGTERM
 from time import sleep
 import sys
-
+ip = ''
 #
 # Configuration
 #
@@ -153,7 +153,7 @@ def request_client(wrapper):
         dst_port = unpack('>H', port_to_unpack)[0]
     else:
         return False
-    print(dst_addr, dst_port)
+    print('IP: ' + ip + ' ' + dst_addr, dst_port)
     return (dst_addr, dst_port)
 
 
@@ -249,6 +249,7 @@ def subnegotiation(wrapper):
 def connection(wrapper):
     """ Function run by a thread """
     if subnegotiation(wrapper):
+        
         request(wrapper)
 
 
@@ -304,7 +305,10 @@ def main():
             continue
         try:
             wrapper, _ = new_socket.accept()
+            retriveadress=  _ 
             wrapper.setblocking(1)
+            ip = _
+            print(retriveadress)
         except socket.timeout:
             continue
         except socket.error:
@@ -316,6 +320,7 @@ def main():
         recv_thread = Thread(target=connection, args=(wrapper, ))
         recv_thread.start()
     new_socket.close()
+
 
 
 EXIT = ExitStatus()
