@@ -29,6 +29,16 @@ LOCAL_PORT = 3000
 # a routing decision is made
 # OUTGOING_INTERFACE = "eth0"
 OUTGOING_INTERFACE = ""
+class bcolors:
+    BLUE = '\033[94m'
+    GREEN = '\033[92m'
+    RED = '\033[31m'
+    YELLOW = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    BGRED = '\033[41m'
+    WHITE = '\033[37m'
 
 #
 # Constants
@@ -89,7 +99,16 @@ def proxy_loop(socket_src, socket_dst):
             continue
         try:
             for sock in reader:
-                data = sock.recv(BUFSIZE)
+                try:
+                 data = sock.recv(BUFSIZE)
+                except ConnectionResetError as ex:
+                 sys.tracebacklimit = None
+                 print(bcolors.YELLOW + bcolors.BOLD)
+                 print(ex)
+                 return
+                        
+                        
+                      
                 if not data:
                     return
                 if sock is socket_dst:
@@ -153,7 +172,8 @@ def request_client(wrapper):
         dst_port = unpack('>H', port_to_unpack)[0]
     else:
         return False
-    print('IP: ' + ip + ' ' + dst_addr, dst_port)
+    print(bcolors.GREEN + bcolors.BOLD)
+    print(dst_addr, dst_port)
     return (dst_addr, dst_port)
 
 
@@ -308,6 +328,7 @@ def main():
             retriveadress=  _ 
             wrapper.setblocking(1)
             ip = _
+            print(bcolors.BLUE + bcolors.BOLD)
             print(retriveadress)
         except socket.timeout:
             continue

