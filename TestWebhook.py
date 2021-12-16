@@ -7,7 +7,7 @@ url = "http://127.0.0.1:5000/webhook" #webhook url, from here: https://i.imgur.c
 
 #for all params, see https://discordapp.com/developers/docs/resources/webhook#execute-webhook
 data = {
-    "ip" : "sOULMAREIPleak",
+    "ip" : "Zortos",
     "username" : "custom username"
 }
 

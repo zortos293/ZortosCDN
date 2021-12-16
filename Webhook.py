@@ -115,6 +115,9 @@ def Discordwebhook():
 @app.route('/webhook', methods=['POST'])
 def webhook():
     if request.method == 'POST':
+        if request.json['ip'] in request.json:
+            print('Yes there is uwu')
+            
         resp = request.json
         print(resp['ip'])
         print(resp['ip'])
