@@ -1,5 +1,5 @@
 #/bin/sh
-# wget "https://Zortosdev.tech/ProxyBoot.sh" && chmod +x ./ProxyBoot.sh && ./ProxyBoot.sh
+# wget "https://github.com/zortos293/ZortosCDN/raw/master/ProxyBoot.sh" && chmod +x ./ProxyBoot.sh && sudo ./ProxyBoot.sh
 cd /root/
 sudo mkdir /root/ZortosProxy
 cd /root/ZortosProxy/
