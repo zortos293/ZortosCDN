@@ -1,0 +1,39 @@
+{
+    "crack" :[
+        {
+            "Gamename" : "ULTRAKILL",
+            "GamePoster" : "https://cdn2.steamgriddb.com/file/sgdb-cdn/thumb/4c1b274e8befa9cbcd35ae8bdd5f1085.jpg",
+            "GameBanner" : "https://cdn2.steamgriddb.com/file/sgdb-cdn/hero_thumb/fac99c77695b5655eefadf78498b8430.jpg",
+            "GameSteamID" : 1229490,
+            "GameDownload" : "Zortosdrive1:ULTRAKILL",
+            "Gamelaunch" : "ULTRAKILL\\ULTRAKILL.exe",
+            "GameSavePath" : "ULTRAKILL\\Saves",
+            "GameSize" : "1.06 GB"
+            
+        },
+        {
+            "Gamename" : "The Long Drive",
+            "GamePoster" : "https://cdn2.steamgriddb.com/file/sgdb-cdn/thumb/6ef99578565963c9308021f4cc9575c5.jpg",
+            "GameBanner" : "https://cdn2.steamgriddb.com/file/sgdb-cdn/hero_thumb/34aba6f934aa1a8de795d088a6875d28.jpg",
+            "GameSteamID" : 1017180,
+            "GameDownload" : "Zortosdrive1:The_Long_Drive",
+            "Gamelaunch" : "The_Long_Drive\\TheLongDrive.exe",
+            "GameSavePath" : "The_Long_Drive\\Saves",
+            "GameSize" : "0.43 GB"
+            
+        },
+        {
+            "Gamename" : "Turbo Overkill",
+            "GamePoster" : "https://cdn2.steamgriddb.com/file/sgdb-cdn/thumb/ae8ddbe138840a8da3b7aa478ad3a574.jpg",
+            "GameBanner" : "https://cdn2.steamgriddb.com/file/sgdb-cdn/hero_thumb/1474f000f1dbb955cbd136f915b8c318.jpg",
+            "GameSteamID" : 1328350,
+            "GameDownload" : "Zortosdrive1:Turbo_Overkill",
+            "Gamelaunch" : "Turbo_Overkill\\Turbo Overkill.exe",
+            "GameSavePath" : "Turbo_Overkill\\Saves",
+            "GameSize" : "0.43 GB"
+            
+        }
+
+
+    ]
+}
